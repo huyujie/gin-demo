@@ -1,18 +1,19 @@
 // Use of this source code is governed by a Apache license
 // that can be found in the LICENSE file.
 
-package gin_demo
+package main
 
 import (
 	"flag"
 	"gin-demo/pkg/config"
 	"gin-demo/pkg/logger"
 	"gin-demo/pkg/service/demo_api"
-	"github.com/gin-gonic/gin"
-	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+
+	// mysql "gin-demo/pkg/util/db"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -24,7 +25,10 @@ func main() {
 	c := config.ReadConf()
 
 	//init logger
-	logger.Setup("git-demo")
+	logger.Setup("gin-demo")
+
+	//mysql
+	// mysql.OpenDatabase(c)
 
 	// init router
 	gin.SetMode(c.Common.Gin.Mode)
