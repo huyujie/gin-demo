@@ -17,6 +17,7 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/toolkits/file v0.0.0-20160325033739-a5b3c5147e07
 	go.uber.org/zap v1.16.0
+	google.golang.org/genproto v0.0.0-20210423144448-3a41ef94ed2b
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gopkg.in/yaml.v2 v2.4.0
 )
