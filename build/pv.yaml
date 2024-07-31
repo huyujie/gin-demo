@@ -11,13 +11,22 @@ spec:
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: local-storage
   local:
-    path: /tmp/log
+    path: /var/lib/pv
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - VM-20-5-ubuntu
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-pvc
+    #namespace: ingress-nginx
 spec:
   accessModes:
     - ReadWriteOnce
