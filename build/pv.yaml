@@ -8,7 +8,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
     path: /var/lib/pv
@@ -19,14 +19,13 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - VM-20-5-ubuntu
+                - master
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-pvc
-    #namespace: ingress-nginx
 spec:
   accessModes:
     - ReadWriteOnce
